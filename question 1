@@ -1,0 +1,430 @@
+Program 1
+Write a python code to demonstrate commands for numpy and pandas.
+# Demonstrate numpy commands
+# Import necessary libraries
+
+
+import numpy as np
+
+# Creating arrays with zeros
+a = np.zeros(3)  # 1D array of zeros
+print("Array a:", a)
+print("Type of array a:", type(a))
+print("Type of elements in array a:", type(a[0]))
+
+b = np.zeros(3, dtype=int)  # 1D array of zeros with integer type
+print("Array b:", b)
+print("Type of array b:", type(b))
+print("Type of elements in array b:", type(b[0]))
+
+# Reshape example
+z = np.zeros(3)
+print("Original Array: ", z)
+print("Shape of Array: ", z.shape)
+z.shape = (3, 1)  # Reshape array to 5x1
+print("Reshaped Array:\n", z)
+print("Shape of Reshaped Array: ", z.shape)
+
+# Creating an array using linspace
+z = np.linspace(1, 2, 5)
+print("Array created using linspace: ", z)
+
+# Accessing array elements with positive and negative indexing
+print("Element at index 0: ", z[0])
+print("Element at index -3: ", z[-3])
+print("Array elements from index 0 to 2: ", z[0:2])
+
+# Identity matrix
+i = np.identity(2, dtype=int)
+print("Identity Matrix:\n", i)
+
+# Creating a 2D matrix in two different ways
+z = np.zeros((2, 2))  # 2D array of zeros
+print("2-D Array (method 1):\n", z)
+
+y = np.array([[1, 2], [3, 4]])  # Manually defined 2D array
+print("2-D Array (method 2):\n", y)
+
+# Accessing elements with index
+print("Element at (0,1): ", y[0, 1])
+print("Element at (0,0): ", y[0, 0])
+
+# Slicing in 2D arrays
+print("Second row: ", y[1, :])
+print("First column: ", y[:, 0])
+
+H = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
+print("2-D Array:\n", H)
+print("First row:", H[0, :])
+print("Third row:", H[2, :])
+print("First column across rows: ", H[:, 0])
+
+# Access elements at specified indices
+x = np.linspace(2, 4, 5)
+indices = np.array((0, 2, 3))
+print("Array x:", x)
+print("Elements at specified indices(0,2,3): ", x[indices])
+
+# Boolean array
+d = np.array([0, 1, 2, 0, 0], dtype=bool)  # Every non-zero is True, 0 is False
+print("Boolean Array d:", d)
+
+# Sorting and basic array statistics
+a = np.array([17, 11, 15, 19, 24, 28, 26, 37, 35, 40])
+a.sort()
+print("Original Array:", a)
+print("Sorted Array:", a)
+print("Sum:", a.sum())
+print("Min:", a.min())
+print("Max:", a.max())
+print("Argmin (index of min):", a.argmin())
+print("Argmax (index of max):", a.argmax())
+print("Cumulative Sum:", a.cumsum())
+print("Cumulative Product:", a.cumprod())
+print("Mean:", a.mean())
+print("Median:", np.median(a))
+print("Variance:", a.var())
+print("Standard Deviation:", a.std())
+print("Searchsorted (insert position for 25):", a.searchsorted(25))
+
+# Array arithmetic operations
+a = np.array([1, 2, 3, 4])
+b = np.array([5, 6, 7, 8])
+print("a + b:", a + b)
+print("a * b:", a * b)
+print("a + 10:", a + 10)
+print("a * 10:", a * 10)
+
+# Matrix operations
+X = np.array([[1, 2, 3], [4, 5, 6], [5, 6, 7]])
+Y = np.array([[7, 8, 9], [4, 8, 9], [6, 3, 5]])
+print("X:\n", X)
+print("Y:\n", Y)
+print("X + Y:\n", X + Y)
+print("X + 10:\n", X + 10)
+print("X * Y:\n", X @ Y)  # Matrix multiplication
+print("Transpose of X:\n", X.T)
+
+# Comparison and modifying elements
+Z = np.array([2, 3])
+X = np.array([2, 3])
+print("X == Z:", X == Z)
+X[0] = 5
+print("X == Z after modifying X:", X == Z)
+
+
+====> Array a: [0. 0. 0.]
+Type of array a: <class 'numpy.ndarray'>
+Type of elements in array a: <class 'numpy.float64'>
+Array b: [0 0 0]
+Type of array b: <class 'numpy.ndarray'>
+Type of elements in array b: <class 'numpy.int64'>
+Original Array:  [0. 0. 0.]
+Shape of Array:  (3,)
+Reshaped Array:
+ [[0.]
+ [0.]
+ [0.]]
+Shape of Reshaped Array:  (3, 1)
+Array created using linspace:  [1.   1.25 1.5  1.75 2.  ]
+Element at index 0:  1.0
+Element at index -3:  1.5
+Array elements from index 0 to 2:  [1.   1.25]
+Identity Matrix:
+ [[1 0]
+ [0 1]]
+2-D Array (method 1):
+ [[0. 0.]
+ [0. 0.]]
+2-D Array (method 2):
+ [[1 2]
+ [3 4]]
+Element at (0,1):  2
+Element at (0,0):  1
+Second row:  [3 4]
+First column:  [1 3]
+2-D Array:
+ [[1 2 3]
+ [4 5 6]
+ [7 8 9]]
+First row: [1 2 3]
+Third row: [7 8 9]
+First column across rows:  [1 4 7]
+Array x: [2.  2.5 3.  3.5 4. ]
+Elements at specified indices(0,2,3):  [2.  3.  3.5]
+Boolean Array d: [False  True  True False False]
+Original Array: [11 15 17 19 24 26 28 35 37 40]
+Sorted Array: [11 15 17 19 24 26 28 35 37 40]
+Sum: 252
+Min: 11
+Max: 40
+Argmin (index of min): 0
+Argmax (index of max): 9
+Cumulative Sum: [ 11  26  43  62  86 112 140 175 212 252]
+Cumulative Product: [            11            165           2805          53295
+        1279080       33256080      931170240    32590958400
+  1205865460800 48234618432000]
+Mean: 25.2
+Median: 25.0
+Variance: 87.55999999999999
+Standard Deviation: 9.357350052231668
+Searchsorted (insert position for 25): 5
+a + b: [ 6  8 10 12]
+a * b: [ 5 12 21 32]
+a + 10: [11 12 13 14]
+a * 10: [10 20 30 40]
+X:
+ [[1 2 3]
+ [4 5 6]
+ [5 6 7]]
+Y:
+ [[7 8 9]
+ [4 8 9]
+ [6 3 5]]
+X + Y:
+ [[ 8 10 12]
+ [ 8 13 15]
+ [11  9 12]]
+X + 10:
+ [[11 12 13]
+ [14 15 16]
+ [15 16 17]]
+X * Y:
+ [[ 33  33  42]
+ [ 84  90 111]
+ [101 109 134]]
+Transpose of X:
+ [[1 4 5]
+ [2 5 6]
+ [3 6 7]]
+[2 3]
+X == Z: [ True  True]
+X == Z after modifying X: [ True False]
+
+
+
+# Impoer neccessary libraries
+from pandas import DataFrame, Series  # Import Series and DataFrame for convenience
+import pandas as pd
+import numpy as np
+
+# Creating a Series with default index
+ser_1 = Series([1, 1, 2, -3, -5, 8, 13])
+print("Series with default index:\n", ser_1)
+print("Values in series: ", ser_1.values)  # Display only the values of the series
+
+# Creating a Series with a custom index
+ser_2 = Series([1, 1, 2, -3, -5], index=['a', 'b', 'c', 'd', 'e'])
+print("Series 2:\n", ser_2)
+
+# Accessing elements in a Series using index and labels
+print("ser_2[1] == ser_2[b]", ser_2[1] == ser_2["b"])
+print(ser_2[['c', 'a', 'b']])
+# Filter Series for values greater than 0
+ser_2[ser_2 > 0]
+# Apply an operation on Series elements
+ser_2 * 2
+np.exp(ser_2)
+
+# Create a Series from a dictionary
+dict_1 = {'foo': 100, 'bar': 200, 'baz': 300}
+ser_3 = Series(dict_1)
+# Custom index on Series
+index = ['foo', 'bar', 'baz', 'qux']
+ser_4 = Series(dict_1, index=index)  # Missing values become NaN
+
+# Print Series
+print("Series 3:\n", ser_3)
+print("Series 4:\n", ser_4)
+# Check for null values in Series
+print("Null values in ser_4:\n", pd.isnull(ser_4))
+# Arithmetic operations between Series
+print("Sum of series 3 and 4:\n", ser_3 + ser_4)
+# Setting names for the Series and index
+ser_4.name = 'foobarbaz'
+ser_4.index.name = 'label'
+print("Series 4 after setting names for series and index:\n", ser_4)
+
+# Create another Series with custom index
+ser = Series([10, 15, 18, 12, 20, 9], index=[5, 8, 12, 0, 1, 7])
+
+# Access elements by label or position using loc and iloc
+print("Accessing elements by label or position: ")
+print(ser.loc[0:1])
+print(ser.iloc[0:1])
+print(ser.iloc[0])
+print(ser.loc[0])
+
+# Create a DataFrame with dictionaries
+data_1 = {'state': ['VA', 'VA', 'VA', 'MD', 'MD'],
+          'year': [2012, 2013, 2014, 2015, 2016],
+          'pop': [5.0, 5.1, 5.2, 4.0, 4.1]}
+df_1 = DataFrame(data_1)
+
+# Access a column of the DataFrame
+df_1['state']
+
+# Find and print the series of prime numbers from 1 to 300
+primes = []
+for i in range(1, 301):
+    if i > 1:
+        for j in range(2, i // 2 + 1):
+            if i % j == 0:
+                break
+        else:
+            primes.append(i)
+primes_series = pd.Series(primes)
+print("Series of Primes:\n", primes_series)
+
+# Generate Fibonacci numbers up to 100
+a, b = 0, 1
+fibonacci_nums = []
+while a < 100:
+    fibonacci_nums.append(a)
+    a, b = b, a + b
+fibonacci_series = Series(fibonacci_nums)
+print("Fibonacci Series:\n", fibonacci_series)
+
+# Prompt user for a list of 20 numbers
+l = [int(x) for x in input("Enter 20 numbers: ").split()]
+
+# Initialize min, max, and sum variables
+min_val = l[0]
+max_val = l[0]
+sum_val = 0
+
+# Calculate sum, min, and max manually
+for i in l:
+    sum_val += i
+    if i < min_val:
+        min_val = i
+    if i > max_val:
+        max_val = i
+
+print("Sum:", sum_val)
+print("Min:", min_val)
+print("Max:", max_val)
+
+# Manually inputing values in a list one by one and finding the sum
+l = []
+sum_val = 0
+for i in range(1, 21):
+    num = int(input("Enter number: "))
+    l.append(num)
+    sum_val += num
+print("Sum:", sum_val)
+     
+<ipython-input-7-586f3d3c2f76>:16: FutureWarning: Series.__getitem__ treating keys as positions is deprecated. In a future version, integer keys will always be treated as labels (consistent with DataFrame behavior). To access a value by position, use `ser.iloc[pos]`
+  print("ser_2[1] == ser_2[b]", ser_2[1] == ser_2["b"])
+Series with default index:
+ 0     1
+1     1
+2     2
+3    -3
+4    -5
+5     8
+6    13
+dtype: int64
+Values in series:  [ 1  1  2 -3 -5  8 13]
+Series 2:
+ a    1
+b    1
+c    2
+d   -3
+e   -5
+dtype: int64
+ser_2[1] == ser_2[b] True
+c    2
+a    1
+b    1
+dtype: int64
+Series 3:
+ foo    100
+bar    200
+baz    300
+dtype: int64
+Series 4:
+ foo    100.0
+bar    200.0
+baz    300.0
+qux      NaN
+dtype: float64
+Null values in ser_4:
+ foo    False
+bar    False
+baz    False
+qux     True
+dtype: bool
+Sum of series 3 and 4:
+ bar    400.0
+baz    600.0
+foo    200.0
+qux      NaN
+dtype: float64
+Series 4 after setting names for series and index:
+ label
+foo    100.0
+bar    200.0
+baz    300.0
+qux      NaN
+Name: foobarbaz, dtype: float64
+Accessing elements by label or position: 
+0    12
+1    20
+dtype: int64
+5    10
+dtype: int64
+10
+12
+Series of Primes:
+ 0       2
+1       3
+2       5
+3       7
+4      11
+     ... 
+57    271
+58    277
+59    281
+60    283
+61    293
+Length: 62, dtype: int64
+Fibonacci Series:
+ 0      0
+1      1
+2      1
+3      2
+4      3
+5      5
+6      8
+7     13
+8     21
+9     34
+10    55
+11    89
+dtype: int64
+Enter 20 numbers: 1 2 3 4 5 6 7 8 0  9 11 23 44 2 21 34 5 12 23 21
+Sum: 241
+Min: 0
+Max: 44
+Enter number: 1
+Enter number: 2
+Enter number: 3
+Enter number: 4
+Enter number: 5
+Enter number: 6
+Enter number: 3
+Enter number: 62
+Enter number: 47
+Enter number: 34
+Enter number: 67
+Enter number: 433
+Enter number: 33
+Enter number: 25
+Enter number: 24
+Enter number: 54
+Enter number: 53
+Enter number: 2
+Enter number: 0
+Enter number: 2
+Sum: 860
